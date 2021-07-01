@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soap.springwssaopv2.yener.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="TestServiceImplService" targetNamespace="http://soap.springwssaopv2.yener.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soap.springwssaopv2.yener.com/" elementFormDefault="unqualified" targetNamespace="http://soap.springwssaopv2.yener.com/" version="1.0">
+
+  <xs:element name="KisiSorgulaRequest" type="tns:kisiSorgulaRequest"/>
+
+  <xs:element name="KisiSorgulaResponse" type="tns:kisiSorgulaResponse"/>
+
+  <xs:element name="getKisiV1" type="tns:getKisiV1"/>
+
+  <xs:element name="getKisiV1Response" type="tns:getKisiV1Response"/>
+
+  <xs:element name="getKisiV2" type="tns:getKisiV2"/>
+
+  <xs:element name="getKisiV2Response" type="tns:getKisiV2Response"/>
+
+  <xs:complexType name="getKisiV1">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KisiSorgulaRequest" type="tns:kisiSorgulaRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="kisiSorgulaRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="kisiId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getKisiV1Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KisiSorgulaResponse" type="tns:kisiSorgulaResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="kisiSorgulaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ad" type="xs:string"/>
+      <xs:element minOccurs="0" name="soyad" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getKisiV2">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KisiSorgulaRequest" type="tns:kisiSorgulaRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getKisiV2Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KisiSorgulaResponse" type="tns:kisiSorgulaResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getKisiV2Response">
+    <wsdl:part element="tns:getKisiV2Response" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getKisiV1">
+    <wsdl:part element="tns:getKisiV1" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getKisiV1Response">
+    <wsdl:part element="tns:getKisiV1Response" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getKisiV2">
+    <wsdl:part element="tns:getKisiV2" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TestService">
+    <wsdl:operation name="getKisiV1">
+      <wsdl:input message="tns:getKisiV1" name="getKisiV1">
+    </wsdl:input>
+      <wsdl:output message="tns:getKisiV1Response" name="getKisiV1Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKisiV2">
+      <wsdl:input message="tns:getKisiV2" name="getKisiV2">
+    </wsdl:input>
+      <wsdl:output message="tns:getKisiV2Response" name="getKisiV2Response">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TestServiceImplServiceSoapBinding" type="tns:TestService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getKisiV1">
+      <soap:operation soapAction="tns:KisiSorgulaRequest" style="document"/>
+      <wsdl:input name="getKisiV1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getKisiV1Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKisiV2">
+      <soap:operation soapAction="tns:KisiSorgulaRequest" style="document"/>
+      <wsdl:input name="getKisiV2">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getKisiV2Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TestServiceImplService">
+    <wsdl:port binding="tns:TestServiceImplServiceSoapBinding" name="TestServiceImplPort">
+      <soap:address location="http://localhost:9999/tescil/TestService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

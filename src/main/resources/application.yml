@@ -1,0 +1,7 @@
+server:
+  port: 9998
+
+
+client:
+  springws:
+    address:  http://localhost:9999/tescil/TestService?wsdl
